@@ -1,0 +1,20 @@
+{
+  "uuid": "99675bd0-ad6b-488a-b28d-c1230f4c2461",
+  "plugins": [],
+  "libraries": [
+    {
+      "name": "mqttws",
+      "version": "3.1"
+    }
+  ],
+  "name": "mqtt-painter",
+  "title": "MQTT Painter",
+  "description": "Cooperative painting using MQTT:",
+  "long-description": "Cooperative painting using MQTT.",
+  "version": "0.0.2",
+  "author-name": "Evothings",
+  "author-email": "build@evothings.com",
+  "index-file": "index.html",
+  "author-url": "https://evothings.com",
+  "cordova-id": "com.evothings.samples.mqtt.painter"
+}
