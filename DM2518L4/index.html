@@ -5,24 +5,31 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no
 		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
-	<title>EMQTT Painter</title>
+	<title>Chat room</title>
+
 
 	<style>
 		@import 'ui/css/evothings-app.css';
-		body
-		{
-				display:table;
-				overflow:hidden;
+		#button-container {
+			display: flex;
 		}
-		div
-		{
-				display:table-row;
+		button+ button {
+			margin-left: 14px;
 		}
-		div+ div
-		{
-				height:100%;
+
+		#message-container {
+			height: 60%;
+			box-sizing: border-box;
+			position: relative;
+			margin-bottom: 10px;
+		}
+		#message-background {
+			height: 100%;
+			box-sizing: border-box;
+			z-index: -1;
 		}
 	</style>
+
 
 	<script>
 	// Redirect console.log to Evothings Workbench.
@@ -35,37 +42,48 @@
 </head>
 
 <body ontouchstart=""><!-- ontouchstart="" enables low-delay CSS transitions. -->
+
+
 	<header>
-		<button class="back" onclick="history.back()">
-			<img src="ui/images/arrow-left.svg">
-		</button>
-		<img class="logotype" src="ui/images/logo.svg" alt="Evothings">
+		<!--<img class="logotype" src="ui/images/logo.svg" alt="Evothings">-->
+		<h1>chatroom</h1>
 	</header>
 
-	<h1>MQTT Painter</h1>
-
+	<!--
 	<p>
 		<span id="info">Not Connected</span>
 		<button id="connect" onclick="app.setupConnection();">Reconnect</button>
 	</p>
+	-->
 
-	<div class="dummy"></div>
-	<div class="canvas-container"><canvas id="canvas" style="margin: 0px;"></canvas></div>
 
+	<div id="message-container">
+		<textarea id="message-background" type="text"></textarea>
+	</div>
+		<div id="input-container">
+		<textarea id="input-board" type="text"></textarea>
+	</div>
+	<div id="button-container">
+		<button id="connect" style="flex-grow: 5">connect</button>
+		<button id="send" >send</button>
+	</div>
 	<script>
-		// Make the canvas fill the part of the screen that's not taken up by other elements.
+		// fill screen space not occupied by other ui elements with message board
 		console.log("loading...");
 		window.blockMenuHeaderScroll = true;
 		document.body.style.overflow = "hidden";
 		document.onreadystatechange = function () {
 			if (document.readyState == "complete") {
-				var canvas = document.getElementById("canvas");
-				canvas.width = canvas.parentElement.clientWidth;
-				canvas.height = canvas.parentElement.clientHeight;
-				console.log("onload: "+canvas.width+"x"+canvas.height);
+				var wrapper = document.getElementById("wrapper");
 			}
 		};
 	</script>
+
+	<!--
+	<div class="canvas-container"><canvas id="canvas" style="margin: 0px;"></canvas></div>
+
+
+	-->
 
 	<script src="libs/mqttws/mqttws.js"></script>
 	</body>

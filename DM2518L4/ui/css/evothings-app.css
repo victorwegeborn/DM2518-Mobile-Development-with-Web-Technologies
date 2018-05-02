@@ -4,13 +4,13 @@
 
 html, body {
 	height: 100%;
-	margin: 0;
+	width: 100%
 	padding: 0;
 
 	font-family: 'Proxima Nova Regular', sans-serif;
 	font-weight: normal;
 
-	background: rgb(255,255,255);
+	background: #bb7cd0;
 
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -87,10 +87,11 @@ header {
 	text-align: center;
 	vertical-align: middle;
 
-	background: #f3f3f3;
+	background: #7b3592;
 
 	z-index: 1000;
 }
+/*
 header button {
 	display: block;
 	position: absolute;
@@ -113,7 +114,6 @@ header button.back {
 	margin: 0;
 	padding: 0 0.9em;
 
-	/* Font size is percentage of the header's font size. */
 	font-size: 50%;
 	color: #000;
 
@@ -144,97 +144,7 @@ header img.logotype {
 	transform: translateY(-50%);
 }
 
-
-
-
-/*  ----------------------------------------------------------
-								MENU
-	---------------------------------------------------------- */
-
-header button#menu-button {
-	position: absolute;
-	right: 0;
-
-	width: 3em;
-	height: 100%;
-	max-height: 100%;
-	margin: 0;
-	padding: 0 0.9em;
-
-	/* Font size is percentage of the header's font size. */
-	font-size: 50%;
-	color: #000;
-
-	text-align: right;
-
-	background: none;
-
-	border-radius: 0;
-	border: none;
-
-	box-shadow: none;
-}
-header button#menu-button img {
-	height: 34%;
-}
-header button#menu-button:focus {
-	pointer-events: none;
-	outline: none;
-}
-header button#menu-button:focus::-moz-focus-inner {
-	border: 0;
-}
-header button#menu-button:focus + menu {
-	opacity: 1;
-	visibility: visible;
-}
-header menu {
-	display: block;
-	position: absolute;
-	top: 100%;
-	right: 0;
-
-	margin: 0;
-	padding: 0;
-
-	background: #f3f3f3;
-
-	opacity: 0;
-	visibility: hidden;
-	transition: visibility 0.5s;
-}
-
-header menu > * {
-	display: block;
-
-	padding: 0 1em 0 1em;
-
-	font-family: 'Proxima Nova Bold';
-	font-size: 35%;
-	text-align: right;
-}
-header menu a {
-	color: #000;
-	text-decoration: none;
-}
-
-header h1 {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-
-	font-size: inherit;
-	line-height: inherit;
-	font-weight: normal;
-	text-align: center;
-	vertical-align: middle;
-	color: #eee;
-
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
+*/
 
 
 
@@ -257,9 +167,9 @@ main footer {
 	margin: 0 -5% 0 -5%;
 	padding: 0 5% 0 5%;
 
-	background-color: #fff;
+	background-color: #7b3592;
 
-	box-shadow: inset 0 5px 9px -9px #000;
+	box-shadow: inset 0 5px 9px -9px #f1e5f6;
 
 	z-index: 2;
 }
@@ -309,7 +219,7 @@ input {
 input[type="text"],input[type="url"],input[type="tel"],input[type="password"],
 input[type="email"],input[type="search"],input[type="number"],
 input[type="date"],input[type="month"],input[type="week"],input[type="time"] {
-	width: 50%;
+	width: 100%;
 
 	padding: 7px 14px 7px 14px;
 
@@ -320,7 +230,7 @@ input[type="date"],input[type="month"],input[type="week"],input[type="time"] {
 	border-radius: 4px;
 	border: none;
 
-	background-color: #f3f3f3; /* Default color: "Arctic". */
+	background-color: #f1e5f6; /* Default color: "Arctic". */
 }
 
 textarea {
@@ -336,7 +246,7 @@ textarea {
 	font-size: 63%;
 	line-height: 1.5;
 
-	background-color: #f3f3f3; /* Default color: "Arctic". */
+	background-color: #f1e5f6; /* Default color: "Arctic". */
 }
 
 
@@ -348,13 +258,13 @@ textarea {
 
 button.clear {
 	margin-left: 1%;
-	background-color: #e15a64; /* Default color: "Soft Red". */
+	background-color: #8f3dab; /* Default color: "Soft Red". */
 }
 
 button,
 input.btn-group + label,
 .button {
-	display: inline-block;
+	/*display: inline-block;*/
 	box-sizing: border-box; /* Width & height includes padding & border. */
 
 	font-family: 'Proxima Nova Black';
@@ -373,7 +283,7 @@ input.btn-group + label,
 
 	box-shadow: none;
 
-	background-color: #b9b9b9; /* Default color: "Charcoal" */
+	background-color: #8f3dab; /* Default color: "Charcoal" */
 }
 body > button,
 body > input.btn-group + label,
@@ -384,8 +294,8 @@ main > input.btn-group + label {
 button:active, button.pressed,
 input.btn-group:active + label, input.btn-group + label:active,
 input.btn-group:checked + label {
-	box-shadow: inset 0 8px 9px -9px #000;
-	background-color: #9d9d9d; /* Default color: "Charcoal" */
+	box-shadow: inset 0 8px 9px -9px #8f3dab;
+	background-color: #d6b0e3; /* Default color: "Charcoal" */
 }
 button:focus,
 input.btn-group:focus {
@@ -454,7 +364,7 @@ canvas {
 	border-radius: 4px;
 	border: none;
 
-	background-color: #f3f3f3; /* Default color: "Arctic" */
+	background-color: #f1e5f6; /* Default color: "Arctic" */
 }
 
 figcaption {
@@ -463,11 +373,12 @@ figcaption {
 
 h1 {
 	padding: 0;
-	margin: 1em 0 0 0;
+	margin: 0.1em 0 0 0;
 
 	font-family: 'Proxima Nova Black';
 	font-size: 100%;
-	line-height: 1.5;
+	line-height: 1.1;
+	color: #e4cbec;
 
 	vertical-align: middle;
 }

@@ -42,6 +42,7 @@ function guid () {
   return _p8() + _p8(true) + _p8(true) + _p8()
 }
 
+/*
 // Simple function to generate a color from the device UUID
 app.generateColor = function (uuid) {
   var code = parseInt(uuid.split('-')[0], 16)
@@ -50,6 +51,7 @@ app.generateColor = function (uuid) {
   var red = (code >> 27) & 31
   return 'rgb(' + (red << 3) + ',' + (green << 3) + ',' + (blue << 3) + ')'
 }
+*/
 
 app.initialize = function () {
   document.addEventListener(
@@ -60,17 +62,22 @@ app.initialize = function () {
 
 app.onReady = function () {
   if (!app.ready) {
-    app.color = app.generateColor(app.uuid) // Generate our own color from UUID
-    app.pubTopic = 'paint/' + app.uuid + '/evt' // We publish to our own device topic
-    app.subTopic = 'paint/+/evt' // We subscribe to all devices using "+" wildcard
-    app.setupCanvas()
+    //app.color = app.generateColor(app.uuid) // Generate our own color from UUID
+    app.pubTopic = 'victor/hipster/chatroom/' + app.uuid + '/evt' // We publish to our own device topic
+    app.subTopic = 'victor/hipster/chatroom/+/evt' // We subscribe to all devices using "+" wildcard
+    app.setupMessageBoard()
+    app.setupInputBoard()
     app.setupConnection()
     app.ready = true
   }
 }
 
-app.setupCanvas = function () {
-  var canvas = document.getElementById('canvas')
+app.setupMessageBoard = function () {
+  var messageBoard = document.getElementById('message-container')
+  messageBoard.readOnly = true;
+
+
+  /*
   app.ctx = canvas.getContext('2d')
   var totalOffsetX = 0
   var totalOffsetY = 0
@@ -106,6 +113,11 @@ app.setupCanvas = function () {
     }
     app.pos = {x: x, y: y}
   })
+  */
+}
+
+app.setupInputBoard = function() {
+
 }
 
 app.setupConnection = function () {
