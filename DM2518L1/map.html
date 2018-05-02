@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="icon" href="https://people.kth.se/~fernanhc/imgs/KTH_logo.png">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      button {
+
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <div id="mapController" style="position: absolute; bottom: 5px; left: 5px">
+      <button onclick="pan(0, -1)"type="button">Up</button>
+      <button onclick="pan(0, 1)" type="button">Down</button>
+      <button onclick="pan(-1, 0)" type="button">Left</button>
+      <button onclick="pan(1, 0)" type="button">Right</button>
+      <button onclick="zoom(1)" type="button">Zoom in</button>
+      <button onclick="zoom(-1)" type="button">Zoom out</button>
+      <button onclick="createMarker(true)"type="button">Draggable marker </button>
+      <button onclick="createMarker(false)" type="button">Undraggable marker </button>
+      <button onclick="focusMyLocation()" type="button">Go to my location </button>
+      <button onclick="goToVictor()" type="button">Go to Victor's favorite location </button>
+      <button onclick="goToSam()" type="button">Go to Sam's location</button>
+
+    </div>
+
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          mapTypeId: 'roadmap',
+          zoom: 3,
+          disableDefaultUI: true,
+          gestureHandling: 'none',
+          zoomControl: false
+        });
+
+
+
+        var pyramid = {
+          url: "https://image.flaticon.com/icons/svg/218/218764.svg", // url
+          scaledSize: new google.maps.Size(50, 50), // scaled size
+
+        };
+
+        var empire = {
+          url: "https://image.flaticon.com/icons/svg/240/240554.svg", // url
+          scaledSize: new google.maps.Size(50, 50), // scaled size
+        };
+
+        victorsMarker = new google.maps.Marker({
+          position: {lat: 29.976480, lng: 31.131302},
+          draggable: false,
+          icon: pyramid,
+          title: "Giza pyramid"
+        })
+
+        samsMarker = new google.maps.Marker({
+          position: {lat: 40.748817, lng: -73.985428},
+          draggable: false,
+          icon: empire,
+          title: "Empire state building"
+        })
+
+        samsMarker.setMap(map)
+        victorsMarker.setMap(map)
+      }
+
+      function zoom(arg) {
+        map.setZoom(map.getZoom() + arg);
+      }
+      function pan(lat, long) {
+        map.panBy(lat*50, long*50)
+      }
+
+      function createMarker(isDraggable) {
+        var marker = new google.maps.Marker({
+          position: map.getCenter(),
+          draggable: isDraggable,
+          animation: isDraggable ? google.maps.Animation.BOUNCE : google.maps.Animation.DROP,
+          title:"Hello World!"
+        });
+        console.log(marker)
+        marker.setMap(map);
+        marker.addListener('click', toggleBounce);
+
+      }
+      function toggleBounce(event) {
+        console.log(event)
+
+      }
+      function focusMyLocation() {
+        navigator.geolocation.getCurrentPosition(focusHelper, errorHandler)
+
+      }
+      function focusHelper(position) {
+        alert("funkar")
+        map.setCenter({lat: latposition.coords.latitude, lng: position.coords.longitude})
+      }
+
+      function errorHandler() {
+        alert("vafan")
+      }
+      function goToSam() {
+        map.setCenter({lat: samsMarker.getPosition().lat(), lng: samsMarker.getPosition().lng()})
+      }
+      function goToVictor() {
+
+        map.setCenter({lat: victorsMarker.getPosition().lat(), lng: victorsMarker.getPosition().lng()})
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+    async defer></script>
+  </body>
+</html>

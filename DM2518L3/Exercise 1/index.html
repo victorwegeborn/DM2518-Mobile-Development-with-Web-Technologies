@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+        <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+        <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+        <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+        <script>
+	       if (window.hyper) { console.log = hyper.log }
+           ons.platform.select('ios')
+           //ons.platform.select('android')
+        </script>
+        <style>
+        .page-content {
+            padding: 10px;
+        }
+        .image {
+            width: 100%;
+            height: auto;
+        }
+        .header {
+            background-color: #72dbb0;
+        }
+        .left {
+            font-size: 27px;
+        }
+        .center {
+            font-size: 27px;
+            letter-spacing: 10px;
+        }
+        ons-back-button {
+            background-color: #87db72;
+        }
+        ons-list-item {
+            font-size: 27px;
+            background-color: #729edb;
+        }
+        #about {
+            background-color: #db8272;
+        }
+        .back-button {
+            font-size: 27px;
+            color: #db8272;
+        }
+        </style>
+    </head>
+    <body>
+        <ons-navigator id="appNavigator" page="pageMain.html"></ons-navigator>
+
+        <!-- Templates -->
+
+        <ons-template id="pageMain.html">
+            <ons-page id="pageMain.html">
+                <ons-toolbar class="header">
+                    <div class="center"> Hipster </div>
+                    <div class="right">
+                        <ons-toolbar-button onclick="showLogIn()">Login</ons-toolbar-button>
+                    </div>
+                </ons-toolbar>
+                <ons-list>
+                    <ons-list-item onclick="showPage('pageCoffee.html')" modifier="chevron" tappable>
+                        Coffee
+                    </ons-list-item>
+                    <ons-list-item onclick="showPage('pageGlasses.html')" modifier="chevron" tappable>
+                        Glasses
+                    </ons-list-item>
+                    <ons-list-item onclick="showPage('pageActivities.html')" modifier="chevron" tappable>
+                        Activities
+                    </ons-list-item>
+                    <ons-list-item id="about" onclick="showPage('pageAbout.html')" modifier="chevron" tappable>
+                        About
+                    </ons-list-item>
+                </ons-list>
+            </ons-page>
+        </ons-template>
+
+
+        <ons-template id="pageCoffee.html">
+            <ons-page id="pageCoffee.html">
+                <ons-toolbar class="header">
+                    <div class="left"><ons-back-button>Menu</ons-back-button></div>
+                    <div class="center">Coffee</div>
+                </ons-toolbar>
+                <div class="page-content">
+                    <h1>The propper hipster coffee</h1>
+                    <p>Have you been drinking your coffee out of a mug your entire life??? Pfff, do you even hipster </p>
+                </div>
+                <ons-list>
+                    <ons-list-item>
+                        <div class="center">
+                            Hipter yet?
+                        </div>
+                        <div class="right">
+                            <ons-switch disable></ons-switch>
+                        </div>
+                    </ons-list-item>
+                </ons-list>
+            </ons-page>
+        </ons-template>
+
+
+        <ons-template id="pageGlasses.html">
+            <ons-page id="pageGlasses.html">
+                <ons-toolbar class="header">
+                    <div class="left"><ons-back-button>Menu</ons-back-button></div>
+                    <div class="center">Glasses</div>
+                </ons-toolbar>
+                <div class="page-content">
+                    <h1>Trying to find those glasses, ehh?</h1>
+                    <p>There is just one rule: if your glasses have glass, then your glasses aren't hipster enough!</p>
+
+                </div>
+            </ons-page>
+        </ons-template>
+
+
+        <ons-template id="pageActivities.html">
+            <ons-page id="pageActivities.html">
+                <ons-toolbar class="header">
+                    <div class="left"><ons-back-button>Menu</ons-back-button></div>
+                    <div class="center">Activities</div>
+                </ons-toolbar>
+                <div class="page-content">
+                    <h1>What can you do as a hipster?</h1>
+                    <p>This might seem like an impossible task. As a true hipster, you must only engage in activities that no one else does!</p>
+                </div>
+            </ons-page>
+        </ons-template>
+
+
+        <ons-template id="pageAbout.html">
+            <ons-page id="pageAbout.html">
+                <ons-toolbar class="header">
+                    <div class="left"><ons-back-button>Menu</ons-back-button></div>
+                    <div class="center">About</div>
+                </ons-toolbar>
+                <div class="page-content">
+                    <img src="https://github.com/mikaelkindborg/evo-demos/blob/master/Demos2014/relaxation-beacons/photos/photo-default-unused.jpg?raw=true">
+                    <h1>The true hipsters</h1>
+                    <p>Victor Hansjons Vegeborn and Sam Hamra</p>
+                </div>
+            </ons-page>
+        </ons-template>
+
+        <ons-template id="login.html">
+            <ons-dialog id="login">
+                <div style="text-align: center; padding: 10px;">
+                    <p>
+                        Come back when you're a true hipster!
+                    </p>
+
+                    <p>
+                        <ons-button onclick="hideDialog('login')">Close</ons-button>
+                    </p>
+                </div>
+            </ons-dialog>
+        </ons-template>
+
+
+
+
+
+    <script>
+    function showPage(page) {
+        // jQuery returns an array of DOM objects, we want the first DOM object
+        // which is the have that has the pushPage function.
+        $('#appNavigator')[0].pushPage(page)
+    }
+
+    showLogIn = function() {
+        var dialog = document.getElementById('login');
+
+        if(dialog) {
+            dialog.show;
+        } else {
+            ons.createElement('login.html', { append: true })
+                .then(function(dialog) {
+                dialog.show();
+            });
+        }
+    }
+
+    var hideDialog = function(id) {
+        document.getElementById(id).hide();
+    };
+
+
+
+
+    window.fn = {};
+
+    window.fn.open = function() {
+        var menu = document.getElementById('menu');
+        menu.open();
+    };
+
+    window.fn.load = function(page) {
+        var content = document.getElementById('content');
+        var menu = document.getElementById('menu');
+        content.load(page).then(menu.close.bind(menu));
+}   ;
+    </script>
+    </body>
+</html>

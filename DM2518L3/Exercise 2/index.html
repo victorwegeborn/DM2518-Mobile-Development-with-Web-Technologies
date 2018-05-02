@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+        <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+        <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+        <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+        <script>
+	       if (window.hyper) { console.log = hyper.log }
+           ons.platform.select('ios')
+           //ons.platform.select('android')
+        </script>
+        <style>
+        .page-content {
+            padding: 10px;
+        }
+        .image {
+            width: 100%;
+            height: auto;
+        }
+        .header {
+            background-color: #72dbb0;
+        }
+        .tab {
+            background-color: #72dbb0;
+        }
+        .center {
+            font-size: 27px;
+            letter-spacing: 10px;
+        }
+        ons-tab {
+            font-size: 27px;
+        }
+  </style>
+    </head>
+    <body>
+        <ons-tabbar>
+            <ons-tab active page="pageAbout.html" icon="md-settings" class="tab"></ons-tab>
+            <ons-tab page="pageCoffee.html" class="tab">Coffe</ons-tab>
+            <ons-tab page="pageGlasses.html" class="tab">Glasses</ons-tab>
+            <ons-tab page="pageActivities.html" class="tab">Activities</ons-tab>
+        </ons-tabbar>
+
+        <!-- Templates -->
+
+
+        <ons-template id="pageCoffee.html">
+            <ons-page id="pageCoffee.html">
+                <ons-toolbar class="header">
+                    <div class="center">Coffee</div>
+                </ons-toolbar>
+                <div class="page-content">
+                    <h1>The propper hipster coffee</h1>
+                    <p>Have you been drinking your coffee out of a mug your entire life??? Pfff, do you even hipster </p>
+                </div>
+            </ons-page>
+        </ons-template>
+
+
+        <ons-template id="pageGlasses.html">
+            <ons-page id="pageGlasses.html">
+                <ons-toolbar class="header">
+                    <div class="center">Glasses</div>
+                </ons-toolbar>
+                <div class="page-content">
+                    <h1>Trying to find those glasses, ehh?</h1>
+                    <p>There is just one rule: if your glasses have glass, then your glasses aren't hipster enough!</p>
+                </div>
+            </ons-page>
+        </ons-template>
+
+
+        <ons-template id="pageActivities.html">
+            <ons-page id="pageActivities.html">
+                <ons-toolbar class="header">
+                    <div class="center">Activities</div>
+                </ons-toolbar>
+                <div class="page-content">
+                    <h1>What can you do as a hipster?</h1>
+                    <p>This might seem like an impossible task. As a true hipster, you must only engage in activities that no one else does!</p>
+                </div>
+            </ons-page>
+        </ons-template>
+
+
+        <ons-template id="pageAbout.html">
+            <ons-page id="pageAbout.html">
+                <ons-toolbar class="header">
+                    <div class="center">About</div>
+                </ons-toolbar>
+                <div class="page-content">
+                    <img src="https://github.com/mikaelkindborg/evo-demos/blob/master/Demos2014/relaxation-beacons/photos/photo-default-unused.jpg?raw=true">
+                    <h1>The true hipsters</h1>
+                    <p>Victor Hansjons Vegeborn and Sam Hamra</p>
+                </div>
+            </ons-page>
+        </ons-template>
+
+    <script>
+    function showPage(page) {
+        // jQuery returns an array of DOM objects, we want the first DOM object
+        // which is the have that has the pushPage function.
+        $('#appNavigator')[0].pushPage(page)
+    }
+    </script>
+    </body>
+</html>

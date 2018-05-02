@@ -1,0 +1,46 @@
+html, body
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.my-page
+{
+	display: none;
+}
+
+.my-header
+{
+}
+
+.my-header-image
+{
+	width: 100%;
+	height: auto;
+}
+
+.my-icon-back
+{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 12%;
+	height: auto;
+}
+
+.my-content
+{
+	margin: 10px 20px;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+.my-content h1
+{
+	font-size: 150%;
+}
+
+.my-content p, .my-content ul
+{
+	font-size: 120%;
+}
