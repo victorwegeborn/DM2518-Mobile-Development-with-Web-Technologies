@@ -6,8 +6,6 @@
 		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 	<title>Chat room</title>
-
-
 	<style>
 		@import 'ui/css/evothings-app.css';
 		#button-container {
@@ -16,7 +14,6 @@
 		button+ button {
 			margin-left: 14px;
 		}
-
 		#message-container {
 			height: 60%;
 			box-sizing: border-box;
@@ -30,60 +27,38 @@
 		}
 	</style>
 
-
 	<script>
 	// Redirect console.log to Evothings Workbench.
 	if (window.hyper && window.hyper.log) { console.log = hyper.log }
 	</script>
-
-	<script src="cordova.js"></script>
 	<script src="app.js"></script>
+	<script src="cordova.js"></script>
 
 </head>
 
 <body ontouchstart=""><!-- ontouchstart="" enables low-delay CSS transitions. -->
 
-
 	<header>
-		<!--<img class="logotype" src="ui/images/logo.svg" alt="Evothings">-->
 		<h1>chatroom</h1>
 	</header>
 
-	<!--
-	<p>
-		<span id="info">Not Connected</span>
-		<button id="connect" onclick="app.setupConnection();">Reconnect</button>
-	</p>
-	-->
-
-
+	<!-- UI elements -->
 	<div id="message-container">
 		<textarea id="message-background" type="text"></textarea>
 	</div>
-		<div id="input-container">
+	<div id="input-container">
 		<textarea id="input-board" type="text"></textarea>
 	</div>
 	<div id="button-container">
 		<button id="connect" style="flex-grow: 5">connect</button>
-		<button id="send" >send</button>
+		<button id="send">send</button>
 	</div>
+
+	
 	<script>
-		// fill screen space not occupied by other ui elements with message board
-		console.log("loading...");
 		window.blockMenuHeaderScroll = true;
 		document.body.style.overflow = "hidden";
-		document.onreadystatechange = function () {
-			if (document.readyState == "complete") {
-				var wrapper = document.getElementById("wrapper");
-			}
-		};
 	</script>
-
-	<!--
-	<div class="canvas-container"><canvas id="canvas" style="margin: 0px;"></canvas></div>
-
-
-	-->
 
 	<script src="libs/mqttws/mqttws.js"></script>
 	</body>

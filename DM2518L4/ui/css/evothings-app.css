@@ -291,7 +291,7 @@ main > button,
 main > input.btn-group + label {
 	font-size: 63% !important;
 }
-button:active, button.pressed,
+button:active, button.pressed, button:disabled,
 input.btn-group:active + label, input.btn-group + label:active,
 input.btn-group:checked + label {
 	box-shadow: inset 0 8px 9px -9px #8f3dab;
